@@ -1,5 +1,5 @@
 <?php
-require "../lib/session.php";
+require "lib/session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ require "../lib/session.php";
 
     <?php 
     function grant_utype() {
-        echo 'now you are a : '.$_POST["u_type"].'  '.session_id();
+        echo 'now you are a : '.$_POST["u_type"];
         $_SESSION["u_type"] = $_POST["u_type"];
         $_SESSION["user_id"] = 'test_u';
     } 
