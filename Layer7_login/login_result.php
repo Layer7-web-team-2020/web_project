@@ -44,7 +44,7 @@ $pw = $_REQUEST["pw"];
 
     $_SESSION["userid"]=$userid;
     print $_SESSION["userid"];
-    header("Location:http://localhost/CH08/login_form.php");
+    header("Location:http://localhost/Layer7_login/login_form.php");
     exit;
     
 } 

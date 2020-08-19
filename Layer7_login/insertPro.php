@@ -19,7 +19,7 @@ try {
     
     $stmh->execute();
     $pdo->commit();
-    header("Location:http://localhost/CH08/list.php"); 
+    header("Location:http://localhost/Layer7_login/list.php"); 
     
 } catch (PDOException $Exception) {
     $pdo->rollBack();

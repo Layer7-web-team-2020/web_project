@@ -1,6 +1,6 @@
 <?php
 function db_connect(){
-$db_user = "kskim";
+$db_user = "kskim"; 
 $db_pass = "12345";
 $db_host = "localhost";
 $db_name = "phptest";
