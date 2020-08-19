@@ -29,7 +29,10 @@
     <p>게시물</p>
     {$list}
     ";
+
     echo $template;
+    
+    mysqli_close($connect);
     ?>
 </body>
 </html>

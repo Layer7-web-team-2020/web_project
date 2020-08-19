@@ -16,7 +16,7 @@
                 </tr></table>
                 <input type = "submit" value="작성">
                 </td>
-                </tr>   
+                </tr>
         </form>
 </body>
 </html>

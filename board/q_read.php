@@ -8,7 +8,6 @@
 </head>
 <body>
     <?php
-
     $connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
     $query = "select * from about_questions where title='".$_GET['title']."'";
     $result = mysqli_query($connect, $query);
