@@ -6,13 +6,13 @@ require('lib/session.php');
 $connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
 $user_id = $_SESSION["user_id"];
 $title = $_POST["title"];                 
-$content = $_POST["content"];
+$content = $_POST["contents"];
 $URL = './q_board.php';       
  
  
 $query = "insert into about_questions (user, title, contents, time) 
         values('$user_id', '$title', '$content', now())";
- 
+
 $result = mysqli_query($connect, $query);
 
 if($result){

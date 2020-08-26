@@ -7,10 +7,9 @@ require('lib/session.php');
     <title>Document</title>
 </head>
 <body>
-    
     <form method="post"> 
-    <input type="submit" name="u_type" id="guest" value="guest" /><br/>
-    <input type="submit" name="u_type" id="admin" value="admin" /><br/>
+    <input type="submit" name="u_type" id="guest" value="guest"><br/>
+    <input type="submit" name="u_type" id="admin" value="admin"><br/>
     </form>
 
     <?php 
@@ -18,7 +17,7 @@ require('lib/session.php');
         echo 'now you are a : '.$_POST["u_type"];
         $_SESSION["u_type"] = $_POST["u_type"];
         $_SESSION["user_id"] = 'test_u';
-    } 
+    }
     if(array_key_exists('u_type',$_POST)) grant_utype();
     ?>
 

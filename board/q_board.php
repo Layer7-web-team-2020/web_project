@@ -1,38 +1,61 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <title>questions_board</title>
-</head>
-<body>
-    <?php
-    $q_write_path = './q_write.php';
-    $q_read_path = './q_read.php';
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS</title>
+    <style>
+  table {
+    display: table; margin-left: auto; margin-right: auto; margin-top : 100px;
+    width: 90%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  thead{
+    border-top: 2.25px solid #444444;
+    border-bottom :2.25px solid #444444;
+  }
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+  </head>
+  <body>
+      <br><br>
+    <center><h1>문의 사항들</h1></cneter>
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th><th>제목</th><th>게시일</th>
+        </tr>
+      </thead>
+      <?php
+      $connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
 
-    $connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
-    $query = 'select title from about_questions';
-    $result = mysqli_query($connect, $query);
-    $list ='<ul>';
+      $query = 'select id,title,date from about_questions';
+      $result = mysqli_query($connect, $query);
 
-    if($result)
-    {
-        while ($row = mysqli_fetch_assoc($result))
-            { 
-            $list=$list.'<li><a href="'.$q_read_path.'/?title='.$row['title'].'">'.$row['title'].'</a></li>';
-            }
-        $list=$list.'</ul>';
-    }
-    else $list = '게시물이 하나도 없다!';
+      $list = '<tbody>';
 
-    $template = "
-    <p><a href = '{$q_write_path}'>글쓰기</a></p>
+      if($result)
+      {
+          while($row = mysqli_fetch_assoc($result))
+          {
+              $list = $list.'<tr><td>'.$row['id'].'</td><td><a href="./q_read.php/?id='.$row['id'].'">'.
+              $row['title'].'</td><td>'.$row['date'].'</td></tr>';
+          }
+          $list = $list.'</tbody>';
+      }
+
+      else $list = '없다!';
+
+      echo $list;
+      mysqli_close($connect);
+      ?>
+    </table>
     <br>
-    <p>게시물</p>
-    {$list}
-    ";
-
-    echo $template;
-    
-    mysqli_close($connect);
-    ?>
-</body>
+    <p><a href = './q_write.php'>글쓰기</a></p>
+    <br>
+  </body>
 </html>
