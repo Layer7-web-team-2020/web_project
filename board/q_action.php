@@ -10,7 +10,7 @@ $content = $_POST["contents"];
 $URL = './q_board.php';       
  
  
-$query = "insert into about_questions (user, title, contents, time) 
+$query = "insert into about_questions (user, title, contents, date) 
         values('$user_id', '$title', '$content', now())";
 
 $result = mysqli_query($connect, $query);
@@ -22,7 +22,8 @@ if($result){
         </script>
 <?php
         }
-else echo $query;
- 
+        else{
+                echo "FAIL";
+        }
 mysqli_close($connect);
 ?>

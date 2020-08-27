@@ -3,14 +3,14 @@ require('lib/session.php');
 ?>
 
 <?php
-/*$connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
-$answer = $_SESSION["answer"];
+$connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
+$answer = $_POST["answer"];
 $URL = './q_board.php'; 
  
  
 $query = "update about_questions
         set answer = '$answer'
-        where id = ;
+        where id = {$_SESSION['current_id']}";
  
 $result = mysqli_query($connect, $query);
 
@@ -21,8 +21,8 @@ if($result){
         </script>
 <?php
         }
-else echo $query;*/
+else echo $query;
 
-echo $_POST['id'];
-//mysqli_close($connect);
+echo $_SESSION['current_id'];
+mysqli_close($connect);
 ?>

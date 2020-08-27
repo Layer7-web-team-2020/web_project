@@ -1,3 +1,7 @@
+<?php
+  //require('/lib/mysql.php');
+?>
+
 <!doctype html>
 <html lang="ko">
   <head>
