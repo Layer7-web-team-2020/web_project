@@ -3,6 +3,15 @@ require('lib/session.php');
 ?>
 
 <?php
+
+if($_SESSION['u_type']!='admin'){
+        echo "
+        <script>
+        alert('접근 권한 없음');
+        location.replace('./index.php');
+        </script>";
+}
+
 $connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fail");
 $answer = $_POST["answer"];
 $URL = './q_board.php'; 
