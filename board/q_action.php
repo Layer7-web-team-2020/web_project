@@ -7,9 +7,8 @@ $connect = mysqli_connect("localhost", "root", "akfekfflwk", "test") or die("fai
 $user_id = $_SESSION["user_id"];
 $title = $_POST["title"];                 
 $content = $_POST["contents"];
-$URL = './q_board.php';       
- 
- 
+$URL = './q_board.php';
+
 $query = "insert into about_questions (user, title, contents, date) 
         values('$user_id', '$title', '$content', now())";
 
@@ -23,7 +22,11 @@ if($result){
 <?php
         }
         else{
-                echo "FAIL";
+?>      <script>
+        alert("<?php echo "fail"?>");
+        location.replace("<?php echo $URL?>");
+        </script>
+        <?php
         }
 mysqli_close($connect);
 ?>
