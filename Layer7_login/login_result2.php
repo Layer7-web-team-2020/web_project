@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-$userid1 = $_REQUEST["userid1"];
-$pw = $_REQUEST["pw"];
+$userid2 = $_REQUEST["userid2"];
+$pw2 = $_REQUEST["pw2"];
 //$chbox= $_REQUEST["ckbox"];
 
-    require_once("MYDB.php");
+    require_once("MYDB2.php");
     $pdo= db_connect();
 
     try{
     $sql="select passwd from member where id=?";
     $stmh=$pdo->prepare($sql);
-    $stmh->bindValue(1,$userid1);
+    $stmh->bindValue(1,$userid2);
     $stmh->execute(); 
     $count=$stmh->rowCount();
 } catch (PDOException $Exception) {
@@ -27,7 +27,7 @@ $row=$stmh->fetch(PDO::FETCH_ASSOC);
     history.back();
 </script>
 
-<?php }else if($pw!=$row["passwd"]){ ?>
+<?php }else if($pw2!=$row["passwd"]){ ?>
 
 <script>
     alert("비밀번호가 틀립니다!");
@@ -38,13 +38,13 @@ $row=$stmh->fetch(PDO::FETCH_ASSOC);
 
     if(isset($_REQUEST["chbox"]))
 {
-    $a = setcookie("userid1","$userid1",time()+60*60^24);
-    $b = setcookie("pw","$pw",time()+60*60*24);
+    $a = setcookie("userid2","$userid2",time()+60*60^24);
+    $b = setcookie("pw2","$pw2",time()+60*60*24);
 }
 
-    $_SESSION["userid1"]=$userid1;
-    print $_SESSION["userid1"];
-    header("Location:http://localhost/Layer7_login/login_Form.php");
+    $_SESSION["userid2"]=$userid2;
+    print $_SESSION["userid2"];
+    header("Location:http://localhost/Layer7_login/login_Form2.php");
     exit;
     
 } 

@@ -4,7 +4,7 @@ $passwd=$_REQUEST["passwd"];
 $name=$_REQUEST["name"];
 $tel=$_REQUEST["tel"];
 
-require_once("MYDB.php");
+require_once("MYDB2.php");
 $pdo = db_connect();
 
 try {
@@ -20,7 +20,7 @@ try {
     $stmh->execute();
     $pdo->commit();
     
-    header("Location:http://localhost/Layer7_login/login_Form.php");
+    header("Location:http://localhost/Layer7_login/login_Form2.php");
     
 } catch (PDOException $Exception) {
     $pdo->rollBack();

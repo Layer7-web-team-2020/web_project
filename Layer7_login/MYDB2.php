@@ -1,9 +1,9 @@
 <?php
 function db_connect(){
-$db_user = "kskim"; 
+$db_user = "Layer7"; 
 $db_pass = "12345";
 $db_host = "localhost";
-$db_name = "phptest";
+$db_name = "phptest2";
 $db_type = "mysql";
 $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
 
@@ -18,4 +18,3 @@ try{
 return $pdo;
 }
 ?>
-

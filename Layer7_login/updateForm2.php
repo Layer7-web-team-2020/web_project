@@ -2,7 +2,7 @@
 <?php
     $id = $_REQUEST["id"];
 
-    require_once("MYDB.php");
+    require_once("MYDB2.php");
     $pdo= db_connect();
     ?>
 <html>
@@ -28,7 +28,7 @@ try{
     else{
         $row=$stmh->fetch(PDO::FETCH_ASSOC);
 ?>
-        <form method="post" action="updatePro.php">  
+        <form method="post" action="updatePro2.php">  
             <table border="1">
                 <tr>
                     <td>이메일</td>
