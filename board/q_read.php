@@ -26,9 +26,16 @@ require('lib/session.php');
     <br>
     {$row['contents']}
     <br>
-    <p>질문 한 놈 : {$row['user']}</p>  
-    <hr>
+    <p>질문 한 놈 : {$row['user']}</p>
     ";
+    if($row['file']){
+        $src = '../../tmp/'.$row['file'];
+        $contents = $contents."
+        <a href='{$src}'>업로드한 파일</a>
+        <hr>
+        ";
+    }
+    else $contents = $contents.'<br>업로드한 파일 없음<hr>';
 
     $ans_button = "
     <form method='post'> 

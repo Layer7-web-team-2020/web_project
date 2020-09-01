@@ -8,11 +8,12 @@ $user_id = $_SESSION["user_id"];
 $title = $_POST["title"];                 
 $content = $_POST["contents"];
 $URL = './q_board.php';
+$file_name = $_FILES['u_file']['name'];
 
-$query = "insert into about_questions (user, title, contents, date) 
-        values('$user_id', '$title', '$content', now())";
+$query = "insert into about_questions (user, title, contents, date,file) 
+        values('$user_id', '$title', '$content', now(), '$file_name')";
 
-$result = mysqli_query($connect, $query);
+        $result = mysqli_query($connect, $query);
 
 $upload_dir = $_SERVER['DOCUMENT_ROOT']."/tmp/";
 $upload_file = $upload_dir.basename($_FILES['u_file']['name']);
