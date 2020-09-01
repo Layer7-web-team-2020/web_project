@@ -7,9 +7,10 @@
 </head>
 <body>
     <?php
-    $cn ='";$test=2;"//';
-    $test = "hi ".$cn;
-    echo $test;
+    chmod("C:/Bitnami/wampstack-7.3.20-0/apache2/htdocs/tmp/스크린샷(1).png",0777);
     ?>
+    <img class="fit-picture"
+     src="C:/Bitnami/wampstack-7.3.20-0/apache2/htdocs/tmp/스크린샷(1).png"
+     alt="Grapefruit slice atop a pile of other slices">
 </body>
 </html>

@@ -14,19 +14,31 @@ $query = "insert into about_questions (user, title, contents, date)
 
 $result = mysqli_query($connect, $query);
 
+$upload_dir = $_SERVER['DOCUMENT_ROOT']."/tmp/";
+$upload_file = $upload_dir.basename($_FILES['u_file']['name']);
+
+if(move_uploaded_file($_FILES['u_file']['tmp_name'], $upload_file)){
+        echo "
+        <script>
+        alert('업로드 성공');
+        </script>";
+}
+
 if($result){
-?>      <script>
-        alert("<?php echo "글이 등록되었습니다."?>");
-        location.replace("<?php echo $URL?>");
+        echo "
+        <script>
+        alert('글이 등록되었습니다.');
+        location.replace('$URL');
         </script>
-<?php
-        }
+        ";
+}
         else{
-?>      <script>
-        alert("<?php echo "fail"?>");
-        location.replace("<?php echo $URL?>");
+        echo "
+        <script>
+        alert('fail');
+        location.replace('$URL');
         </script>
-        <?php
-        }
+        ";
+}
 mysqli_close($connect);
 ?>
