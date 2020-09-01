@@ -20,7 +20,7 @@ $upload_file = $upload_dir.basename($_FILES['u_file']['name']);
 if(move_uploaded_file($_FILES['u_file']['tmp_name'], $upload_file)){
         echo "
         <script>
-        alert('업로드 성공');
+        alert('$upload_file 저장완료');
         </script>";
 }
 
