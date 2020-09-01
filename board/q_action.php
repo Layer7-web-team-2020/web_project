@@ -21,10 +21,15 @@ $upload_file = $upload_dir.basename($_FILES['u_file']['name']);
 if(move_uploaded_file($_FILES['u_file']['tmp_name'], $upload_file)){
         echo "
         <script>
-        alert('$upload_file 저장완료');
+        alert('파일 업로드 완료');
         </script>";
 }
-
+else {
+        echo "
+        <script>
+        alert('파일 업로드 실패');
+        </script>";
+}
 if($result){
         echo "
         <script>
@@ -36,7 +41,7 @@ if($result){
         else{
         echo "
         <script>
-        alert('fail');
+        alert('글 등록 실패');
         location.replace('$URL');
         </script>
         ";
